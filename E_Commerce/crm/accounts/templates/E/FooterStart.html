@@ -57,12 +57,14 @@
         <div class="row g-5">
           <div class="col-lg-3 col-md-6">
             <div class="footer-item">
-              <h4 class="text-light mb-3">Why People Like us!</h4>
+              {% for whyfooter in Why %}
+              <h4 class="text-light mb-3">{{ whyfooter.FooterName}}</h4>
+              {% endfor %}
+              {% for whysub in Whysub %}
               <p class="mb-4">
-                typesetting, remaining essentially unchanged. It was popularised
-                in the 1960s with the like Aldus PageMaker including of Lorem
-                Ipsum.
+                {{ whysub.SubFooterDescription|safe }}
               </p>
+              {% endfor %}
               <a
                 href=""
                 class="btn border-secondary py-2 px-4 rounded-pill text-primary"
@@ -72,33 +74,32 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="d-flex flex-column text-start footer-item">
-              <h4 class="text-light mb-3">Shop Info</h4>
-              <a class="btn-link" href="">About Us</a>
-              <a class="btn-link" href="">Contact Us</a>
-              <a class="btn-link" href="">Privacy Policy</a>
-              <a class="btn-link" href="">Terms & Condition</a>
-              <a class="btn-link" href="">Return Policy</a>
-              <a class="btn-link" href="">FAQs & Help</a>
+              {% for shopinfo in ShopInfo %}
+              <h4 class="text-light mb-3">{{ shopinfo.FooterName}}</h4>
+              {% endfor %}
+              {% for subshopinfo in SubShopInfo %}
+              <a class="btn-link" href="">{{ subshopinfo.SubFooterName }}</a>
+              {% endfor %}
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="d-flex flex-column text-start footer-item">
-              <h4 class="text-light mb-3">Account</h4>
-              <a class="btn-link" href="">My Account</a>
-              <a class="btn-link" href="">Shop details</a>
-              <a class="btn-link" href="">Shopping Cart</a>
-              <a class="btn-link" href="">Wishlist</a>
-              <a class="btn-link" href="">Order History</a>
-              <a class="btn-link" href="">International Orders</a>
+              {% for account in Account %}
+              <h4 class="text-light mb-3">{{ account.FooterName}}</h4>
+              {% endfor %}
+              {% for subaccount in SubAccount %}
+              <a class="btn-link" href="">{{ subaccount.SubFooterName }}</a>
+              {% endfor %}
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="footer-item">
-              <h4 class="text-light mb-3">Contact</h4>
-              <p>Address: 1429 Netus Rd, NY 48247</p>
-              <p>Email: Example@gmail.com</p>
-              <p>Phone: +0123 4567 8910</p>
-              <p>Payment Accepted</p>
+              {% for contact in Contact %}
+              <h4 class="text-light mb-3">{{ contact.FooterName}}</h4>
+              {% endfor %}
+              {% for subcontact in SubContact %}
+              <p>{{ subcontact.SubFooterName }}</p>
+              {% endfor %}
               <img
                 src="{% static 'staticE/img/payment.png' %}"
                 class="img-fluid"

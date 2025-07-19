@@ -5,4 +5,7 @@ from .models import *
 admin.site.register(TblInfo)
 admin.site.register(TblMenu)
 admin.site.register(TblSubMenu)
-admin.site.register(MenuDetail)
+admin.site.register(TblMenuDetail)
+admin.site.register(TblFooter)
+admin.site.register(TblSubFooter)
+admin.site.register(TblSlide)

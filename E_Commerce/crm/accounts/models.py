@@ -22,3 +22,28 @@ class TblSubMenu(models.Model):
 
     def __str__(self):
         return self.SubMenuName
+    
+class TblMenuDetail(models.Model):
+    MenuID = models.ForeignKey(TblSubMenu, on_delete=models.CASCADE, null=True, blank=True)
+    Description = RichTextUploadingField(null=True, blank=True)
+    def __str__(self):         
+        return self.MenuID.MenuName
+    
+class TblFooter(models.Model):
+    FooterName = models.CharField(max_length=255, null=True)
+    def __str__(self):
+        return self.FooterName
+
+class TblSubFooter(models.Model):
+    FooterID = models.ForeignKey(TblFooter, on_delete=models.CASCADE, null=True, blank=True)
+    SubFooterName = models.CharField(max_length=255, null=True)
+    SubFooterDescription = RichTextUploadingField(null=True, blank=True)
+    def __str__(self):
+        return self.SubFooterName
+
+class TblSlide(models.Model):
+    SlideName = models.CharField(max_length=255, null=True)
+    SlideImage = models.ImageField(upload_to='pic\img', null=True, blank=True)   
+
+    def __str__(self):
+        return self.SlideName 
